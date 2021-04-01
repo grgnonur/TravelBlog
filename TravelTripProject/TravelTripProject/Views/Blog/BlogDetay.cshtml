@@ -1,0 +1,61 @@
+﻿@model TravelTripProject.Models.Siniflar.BlogYorum
+@{
+    ViewBag.Title = "BlogDetay";
+    Layout = "~/Views/Shared/_TravelLayout.cshtml";
+}
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link href="~/web2/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="~/web2/css/style.css" rel='stylesheet' type='text/css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Personal Blog Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!----webfonts---->
+    <link href='http://fonts.googleapis.com/css?family=Oswald:100,400,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic' rel='stylesheet' type='text/css'>
+    <!----//webfonts---->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!--end slider -->
+</head>
+<body>
+    <div class="single">
+        <div class="container">
+            <div class="single-main">
+                @foreach (var item in Model.BlogDeger)
+                {
+                    <div class="single-grid">
+                        <img src="@item.BlogImage" alt="" />
+                        <br />
+                        <h2>@item.Baslik</h2>
+                        <p>
+                            @item.Aciklama
+                        </p>
+                    </div>
+                }
+                @foreach (var y in Model.YorumDeger)
+                {
+                    <ul class="comment-list">
+                        <li>
+                            <img src="~/web2/images/avatar.png" class="img-responsive" alt="" height="10" width="10">
+                            <div class="desc">
+                                <p>@y.KullaniciAdi : @y.Yorumlar </p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </li>
+                    </ul>
+                }
+                @Html.Action("YorumYap","Blog")
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+    
+    
+
+
+
+
